@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Habit () {
+export default function Habit (props) {
   const [count, setCount] = useState(0);
 
   const handleIncreament = () => {
@@ -17,7 +17,7 @@ export default function Habit () {
 
   return (
     <li className="habit">
-      <span className="habit-name">Reading</span>
+      <span className="habit-name">{props.name}</span>
       <span className="habit-count">{count}</span>
       <button className="habit-button habit-increase" onClick={handleIncreament}>
         <i className="fas fa-plus-square"></i>
