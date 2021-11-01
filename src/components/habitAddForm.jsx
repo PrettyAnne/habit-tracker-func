@@ -12,6 +12,7 @@ export default function HabitAddForm() {
       e.preventDefault();
       var lastId = habits[habits.length - 1].id;
       setHabits(habits.concat([{ id: lastId + 1, name: inputValue, count: 0 }]));
+      e.target.reset();
     }}>
       <input
         type="text"

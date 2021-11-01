@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { habitsState } from './atom';
 
 export default function Habit (props) {
+  const [habits, setHabits] = useRecoilState(habitsState);
+
   const [count, setCount] = useState(0);
 
   const handleIncreament = () => {
@@ -12,7 +16,7 @@ export default function Habit (props) {
   };
 
   const handleDelete = () => {
-    setCount(0);
+    setHabits(habits.filter(habit => habit.id != props.id));
   };
 
   return (
