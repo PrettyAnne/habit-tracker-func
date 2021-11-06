@@ -3,7 +3,7 @@ import { habitsState } from './atom';
 
 export default function Navbar() {
   const [habits, setHabits] = useRecoilState(habitsState);
-  console.log(habits);
+  console.log(habits.map());
 
   return (
     <nav className="navbar">
