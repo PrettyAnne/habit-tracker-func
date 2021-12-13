@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { habitsState } from './atom';
+import { useSelector, useDispatch } from 'react-redux';
+import { remove } from '../store/slice';
 
 export default function Habit (props) {
-  const [habits, setHabits] = useRecoilState(habitsState);
+  const habits = useSelector(state => state.habitReducer);
+  const dispatch = useDispatch();
 
   const [count, setCount] = useState(0);
 
@@ -16,7 +17,7 @@ export default function Habit (props) {
   };
 
   const handleDelete = () => {
-    setHabits(habits.filter(habit => habit.id != props.id));
+    dispatch(remove(props.id));
   };
 
   return (

@@ -1,10 +1,8 @@
-import { useRecoilState } from 'recoil';
-import { habitsState } from './atom';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
-  const [habits, setHabits] = useRecoilState(habitsState);
-  console.log(habits.length);
-
+  const habits = useSelector(state => state.habitReducer);
+  
   return (
     <nav className="navbar">
       <i className="navbar-logo fas fa-leaf"></i>
